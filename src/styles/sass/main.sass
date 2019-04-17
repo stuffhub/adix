@@ -1,0 +1,446 @@
+$tr1: #13709E
+$tr2: #EE4C5C
+$tr3: #34AEEB
+$tr4: #B8B216
+$tr5: #9E9A1B
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+=mq($val)
+    @media screen and (max-width: $val + 'px')
+        @content
+=transition($val...)
+    -moz-transition: $val
+    -o-transition: $val
+    -webkit-transition: $val
+    transition: $val
+=transform($val...)
+    -moz-transform: $val
+    -o-transform: $val
+    -ms-transform: $val
+    -webkit-transform: $val
+    transform: $val
++keyframes(phone-animation)
+    0%
+        +transform(scale(1))
+    20%
+        +transform(scale(1.3))
+    40%
+        +transform(scale(1.3) rotate(-10deg))
+    60%
+        +transform(scale(1.3) rotate(10deg))
+    80%
+        +transform(scale(1.3) rotate(0deg))
+    100%
+        +transform(scale(1))
++keyframes(btn-animation)
+    0%
+        -moz-box-shadow: 0 0 0 0 rgba(19, 112, 158, 0.4)
+        -webkit-box-shadow: 0 0 0 0 rgba(19, 112, 158, 0.4)
+        box-shadow: 0 0 0 0 rgba(19, 112, 158, 0.4)
+    100%
+        moz-box-shadow: 0 0 0 10px rgba(19, 112, 158, 0.4)
+        -webkit-box-shadow: 0 0 0 10px rgba(19, 112, 158, 0.4)
+        box-shadow: 0 0 0 10px rgba(19, 112, 158, 0.4)
+::-webkit-input-placeholder
+    color: $tr1
+    font-family: 'Roboto-Regular', 'Arial', sans-serif
+    background: transparent
+::-moz-placeholder
+    color: $tr1
+    font-family: 'Roboto-Regular', 'Arial', sans-serif
+    background: transparent
+::-moz-placeholder
+    color: $tr1
+    font-family: 'Roboto-Regular', 'Arial', sans-serif
+    background: transparent
+::-ms-input-placeholder
+    color: $tr1
+    font-family: 'Roboto-Regular', 'Arial', sans-serif
+    background: transparent
+section:not(.slider)
+    padding: 80px 0
+    border-bottom: 3px solid $tr2
+.header-top
+    padding: 25px 0
+    background: url('../img/header-pattern.png')
+    z-index: 1
+    &:before
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        height: 100%
+        width: 100%
+        background: rgba(255,255,255, 0.9)
+        z-index: -1
+    &__wrapper
+        align-items: center
+        justify-content: space-between
+        +mq(640)
+            justify-content: center
+    &__phone
+        color: $tr1
+        font-family: 'Roboto-Bold', 'Arial', sans-serif
+        font-size: 20px
+        .fa
+            vertical-align: middle
+            color: $tr2
+            font-size: 30px
+            margin-right: 10px
+        span
+            vertical-align: middle
+        &:hover
+            .fa
+                -webkit-animation: phone-animation 1s infinite
+                -moz-animation: phone-animation 1s infinite
+                -o-animation: phone-animation 1s infinite
+                animation: phone-animation 1s infinite
+        +mq(640)
+            width: 100%
+            text-align: center
+            margin: 25px 0
+.logo-top
+    &__title
+        color: $tr2
+        font-size: 72px
+        font-family: 'Pacifico-Regular', 'Arial', sans-serif
+    &__subtitle
+        text-transform: capitalize
+        font-family: 'Roboto-Light', 'Arial', sans-serif
+        color: $tr1
+        text-align: center
+        margin-top: 3px
+    +mq(640)
+        width: 100%
+        &__title
+            text-align: center
+.btn
+    position: relative
+    display: inline-block
+    cursor: pointer
+    background: $tr1
+    color: #fff
+    font-family: 'Roboto-Black', 'Arial', sans-serif
+    text-transform: uppercase
+    padding: 20px
+    &__title
+        z-index: 2
+    &__pulse
+        z-index: -1
+        position: absolute
+        top: 0
+        left: 0
+        height: 100%
+        width: 100%
+        -webkit-animation: btn-animation 2.2s infinite
+        -moz-animation: btn-animation 2.2s infinite
+        -o-animation: btn-animation 2.2s infinite
+        animation: btn-animation 2.2s infinite
+        &_delay
+            -webkit-animation: btn-animation 2.2s infinite 0.6s
+            -moz-animation: btn-animation 2.2s infinite 0.6s
+            -o-animation: btn-animation 2.2s infinite 0.6s
+            animation: btn-animation 2.2s infinite 0.6s
+    &:before
+        content: ''
+        position: absolute
+        top: 0
+        right: 0
+        height: 100%
+        width: 0%
+        background: $tr2
+        +transition(width 0.4s)
+        z-index: 1
+    &:hover:before
+        left: 0
+        width: 100%
+.header-nav
+    background: $tr1
+    &__bars
+        display: none
+        cursor: pointer
+        color: #fff
+        font-size: 32px
+        padding: 15px
+        +mq(1024)
+            display: inline-block
+.list-nav
+    display: table
+    width: 100%
+    &__item
+        display: table-cell
+        text-align: center
+    &__link
+        display: block
+        color: #fff
+        font-family: 'Roboto-Bold', 'Arial', sans-serif
+        padding: 25px 0
+        z-index: 1
+        &:before
+            content: ''
+            position: absolute
+            top: 0
+            right: 0
+            width: 0%
+            height: 100%
+            background: $tr2
+            +transition(width 0.4s)
+            z-index: -1
+        .list-nav__item:hover &:before
+            left: 0
+            width: 100%
+    +mq(1024)
+        display: none
+.slider
+    &__list
+        font-size: 0
+        overflow: hidden
+    &__wrapper
+        position: absolute
+        top: 50%
+        left: 50%
+        +transform(translate(-50%,-50%))
+        width: 100%
+        .btn
+            margin-top: 30px
+        +mq(768)
+            padding: 0 50px
+    &__title
+        display: inline-block
+        color: $tr2
+        font-size: 42px
+        font-family: 'Roboto-Bold', 'Arial', sans-serif
+        text-transform: uppercase
+        padding: 0 20px 15px
+        &:after
+            content: ''
+            position: absolute
+            bottom: 0
+            left: 0
+            width: 100%
+            height: 3px
+            background: $tr4
+        +mq(1170)
+            font-size: 36px
+        +mq(1024)
+            font-size: 28px
+        +mq(768)
+            font-size: 24px
+        +mq(480)
+            font-size: 22px
+    &__subtitle
+        font-size: 32px
+        font-family: 'Roboto-Thin', 'Arial', sans-serif
+        color: #fff
+        margin-top: 15px
+        text-transform: lowercase
+        +mq(1170)
+            font-size: 22px
+        +mq(480)
+            font-size: 20px
+    &__block
+        float: left
+        width: 100%
+        height: 500px
+        +mq(1024)
+            height: 450px
+        +mq(768)
+            height: 400px
+        .container
+            height: 1px
+            min-height: 100%
+            text-align: center
+        &:before
+            content: ''
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            background: rgba(0,0,0, 0.6)
+    &__arrow
+        position: absolute
+        top: 50%
+        z-index: 5
+        cursor: pointer
+        background: transparent
+        color: $tr4
+        font-size: 40px
+        +mq(1024)
+            font-size: 32px
+        +mq(768)
+            font-size: 28px
+        &_left
+            left: 0
+            +transform(translate(100%, -50%))
+            +mq(768)
+                +transform(translate(5%, -50%))
+        &_right
+            right: 0
+            +transform(translate(-100%, -50%))
+            +mq(768)
+                +transform(translate(-5%, -50%))
+.ways
+    background: url('../img/header-pattern.png')
+    &:before
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        height: 100%
+        width: 100%
+        background: rgba(255,255,255, 0.8)
+    .container
+        padding: 0 25px
+    &-wrapper
+        margin: 0 -25px
+    &__block
+        width: (100% / 3)
+        padding: 0 25px
+        text-align: center
+        margin-bottom: 45px
+        +mq(1024)
+            width: (100% / 2)
+        +mq(640)
+            width: 100%
+        &-inner
+            background: #fff
+            padding-top: 15px
+            box-shadow: 0 0 10px 0 rgba(0,0,0, 0.1)
+        .btn
+            width: 100%
+            margin-top: 20px
+            border: 3px solid $tr2
+        &:nth-child(even)
+            .btn
+                border: 3px solid $tr1
+                background: $tr2
+                &:before
+                    background: $tr1
+            .picture-ways
+                border: 3px solid $tr1
+    &__desc
+        margin-top: 10px
+        color: #333
+    &__name
+        font-size: 20px
+        margin-top: 20px
+        color: $tr1
+        text-transform: uppercase
+        font-family: 'Roboto-Black', 'Arial', sans-serif
+    &__price
+        margin-top: 10px
+        font-size: 24px
+        color: $tr2
+        font-family: 'Roboto-BlackItalic', 'Arial', sans-serif
+.picture-ways
+    height: 200px
+    width: 200px
+    border-radius: 50%
+    border: 3px solid $tr2
+    overflow: hidden
+    margin: 0 auto
+    &__item
+        display: block
+        position: absolute
+        top: 50%
+        left: 50%
+        +transform(translate(-50%, -50%))
+        max-width: none
+.title
+    text-align: center
+    margin-bottom: 65px
+    font-size: 36px
+    &__name
+        display: inline-block
+        font-family: 'Roboto-Black', 'Arial', sans-serif
+        color: $tr1
+        &_italic
+            font-family: 'Roboto-BlackItalic', 'Arial', sans-serif
+            color: $tr2
+.why
+    .container
+        padding: 0 25px
+    &-wrapper
+        margin: 0 -25px
+    &__block
+        width: (100% / 3)
+        padding: 0 25px
+        +mq(768)
+            width: (100% / 2)
+            margin-bottom: 45px
+        +mq(480)
+            width: 100%
+    &__icon
+        text-align: center
+        font-size: 46px
+        color: $tr1
+        padding-bottom: 15px
+        &:after
+            content: ''
+            position: absolute
+            bottom: 0
+            left: 50%
+            +transform(translateX(-50%))
+            width: 40px
+            height: 3px
+            background: $tr2
+    &__desc
+        color: #333
+        margin-top: 25px
+.feedback
+    background: url('../img/header-pattern.png')
+    &:before
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        height: 100%
+        width: 100%
+        background: rgba(255,255,255, 0.8)
+    &__form
+        align-items: center
+    &__item
+        width: 25%
+        padding: 0 15px
+        .btn
+            width: 100%
+        +mq(768)
+            width: 100%
+            margin-bottom: 25px
+    &__input
+        padding: 0
+        padding-left: 20px
+        border: 2px solid $tr1
+        border-radius: 20px
+        width: 100%
+        line-height: 53px
+        -webkit-box-sizing: border-box
+        -moz-box-sizing: border-box
+        box-sizing: border-box
+        background: #fff
+        color: $tr4
+        letter-spacing: 1.1px
+        font-family: 'Roboto-Black', 'Arial', sans-serif
+        &:focus
+            border: 2px solid $tr2
+.footer
+    padding: 40px 0
+    background: #333
+    &-wrapper
+        align-items: center
+        justify-content: space-between
+    &__copyright
+        color: #ffffff
+        font-family: 'Roboto-Light', 'Arial', sans-serif
+        +mq(640)
+            width: 100%
+            text-align: center
+            margin-top: 25px

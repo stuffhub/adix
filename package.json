@@ -1,0 +1,26 @@
+{
+  "name": "adix",
+  "version": "1.0.0",
+  "description": "Adix Visa",
+  "main": "main.js",
+  "scripts": {
+    "build": "gulp"
+  },
+  "author": "Nikolskii",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@babel/preset-env": "^7.3.1",
+    "babel-loader": "^8.0.5",
+    "browser-sync": "^2.26.3",
+    "gulp": "^4.0.0",
+    "gulp-clean-css": "^4.0.0",
+    "gulp-concat-css": "^3.1.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.11.0",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
+    "webpack-stream": "^5.2.1"
+  }
+}
