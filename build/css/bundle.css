@@ -750,10 +750,6 @@ section:not(.slider) {
 
 .slider__list {
   font-size: 0;
-  -moz-transition: transform 0.7s;
-  -o-transition: transform 0.7s;
-  -webkit-transition: transform 0.7s;
-  transition: transform 0.7s;
 }
 
 .slider__wrapper {

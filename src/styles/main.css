@@ -366,11 +366,7 @@ section:not(.slider) {
 .slider {
   overflow: hidden; }
   .slider__list {
-    font-size: 0;
-    -moz-transition: transform 0.7s;
-    -o-transition: transform 0.7s;
-    -webkit-transition: transform 0.7s;
-    transition: transform 0.7s; }
+    font-size: 0; }
   .slider__wrapper {
     position: absolute;
     top: 50%;
