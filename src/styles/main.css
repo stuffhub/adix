@@ -366,7 +366,11 @@ section:not(.slider) {
 .slider {
   overflow: hidden; }
   .slider__list {
-    font-size: 0; }
+    font-size: 0;
+    -moz-transition: transform 0.7s;
+    -o-transition: transform 0.7s;
+    -webkit-transition: transform 0.7s;
+    transition: transform 0.7s; }
   .slider__wrapper {
     position: absolute;
     top: 50%;
@@ -446,7 +450,7 @@ section:not(.slider) {
   .slider__arrow {
     position: absolute;
     top: 50%;
-    z-index: 5;
+    z-index: 10;
     cursor: pointer;
     background: transparent;
     color: #B8B216;

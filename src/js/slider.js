@@ -6,11 +6,11 @@ module.exports = (function() {
 
   const transformSlide = slidePosition => {
     sliderContainer.css({
-      "-webkit-transform": `translateX(-${slidePosition}px)`,
-      "-moz-transform": `translateX(-${slidePosition}px)`,
-      "-ms-transform": `translateX(-${slidePosition}px)`,
-      "-o-transform": `translateX(-${slidePosition}px)`,
-      "transform": `translateX(-${slidePosition}px)`
+      "-webkit-transform": `translate3d(-${slidePosition}px, 0px, 0px)`,
+      "-moz-transform": `translate3d(-${slidePosition}px, 0px, 0px)`,
+      "-ms-transform": `translate3d(-${slidePosition}px, 0px, 0px)`,
+      "-o-transform": `translate3d(-${slidePosition}px, 0px, 0px)`,
+      "transform": `translate3d(-${slidePosition}px, 0px, 0px)`
     });
   };
 

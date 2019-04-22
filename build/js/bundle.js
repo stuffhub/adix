@@ -118,11 +118,11 @@ module.exports = function () {
 
   var transformSlide = function transformSlide(slidePosition) {
     sliderContainer.css({
-      "-webkit-transform": "translateX(-".concat(slidePosition, "px)"),
-      "-moz-transform": "translateX(-".concat(slidePosition, "px)"),
-      "-ms-transform": "translateX(-".concat(slidePosition, "px)"),
-      "-o-transform": "translateX(-".concat(slidePosition, "px)"),
-      "transform": "translateX(-".concat(slidePosition, "px)")
+      "-webkit-transform": "translate3d(-".concat(slidePosition, "px, 0px, 0px)"),
+      "-moz-transform": "translate3d(-".concat(slidePosition, "px, 0px, 0px)"),
+      "-ms-transform": "translate3d(-".concat(slidePosition, "px, 0px, 0px)"),
+      "-o-transform": "translate3d(-".concat(slidePosition, "px, 0px, 0px)"),
+      "transform": "translate3d(-".concat(slidePosition, "px, 0px, 0px)")
     });
   };
 
