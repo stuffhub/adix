@@ -163,6 +163,8 @@ section:not(.slider)
         width: 100%
 .header-nav
     background: $tr1
+    .container
+        padding: 0
     &__bars
         display: none
         cursor: pointer
@@ -199,9 +201,10 @@ section:not(.slider)
     +mq(1024)
         display: none
 .slider
+    overflow: hidden
     &__list
         font-size: 0
-        overflow: hidden
+        +transition(transform .7s)
     &__wrapper
         position: absolute
         top: 50%
