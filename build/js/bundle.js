@@ -122,7 +122,7 @@ module.exports = function () {
       "-moz-transform": "translateX(-".concat(slidePosition, "px)"),
       "-ms-transform": "translateX(-".concat(slidePosition, "px)"),
       "-o-transform": "translateX(-".concat(slidePosition, "px)"),
-      transform: "translateX(-".concat(slidePosition, "px)")
+      "transform": "translateX(-".concat(slidePosition, "px)")
     });
   };
 

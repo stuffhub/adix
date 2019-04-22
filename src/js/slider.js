@@ -10,7 +10,7 @@ module.exports = (function() {
       "-moz-transform": `translateX(-${slidePosition}px)`,
       "-ms-transform": `translateX(-${slidePosition}px)`,
       "-o-transform": `translateX(-${slidePosition}px)`,
-      transform: `translateX(-${slidePosition}px)`
+      "transform": `translateX(-${slidePosition}px)`
     });
   };
 
