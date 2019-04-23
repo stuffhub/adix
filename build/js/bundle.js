@@ -93,14 +93,44 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-var slider = __webpack_require__(/*! ./slider */ "./src/js/slider.js");
+var slider = __webpack_require__(/*! ./slider */ "./src/js/slider.js"),
+    menu = __webpack_require__(/*! ./menu */ "./src/js/menu.js");
 
 $(window).on('load resize', slider.onResize);
 $(window).on('load', function () {
   $(document).on('click', '.slider__arrow_right', slider.nextSlide);
   $(document).on('click', '.slider__arrow_left', slider.prevSlide);
+  $(document).on('click', '.header-nav__bars', menu.toggle);
   $(document).on('transitionend', '.slider__list', slider.toggleTransitionFlag);
 });
+
+/***/ }),
+
+/***/ "./src/js/menu.js":
+/*!************************!*\
+  !*** ./src/js/menu.js ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function () {
+  var menuList = $('.list-nav'),
+      menuButton = $('.bars-nav');
+
+  var toggle = function toggle() {
+    if (menuList.is(':hidden')) {
+      menuList.slideDown();
+      menuButton.addClass('active');
+    } else {
+      menuList.slideUp();
+      menuButton.removeClass('active');
+    }
+  };
+
+  return {
+    toggle: toggle
+  };
+}();
 
 /***/ }),
 

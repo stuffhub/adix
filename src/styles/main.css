@@ -323,20 +323,65 @@ section:not(.slider) {
     padding: 0; }
   .header-nav__bars {
     display: none;
-    cursor: pointer;
-    color: #fff;
-    font-size: 32px;
     padding: 15px; }
     @media screen and (max-width: 1024px) {
       .header-nav__bars {
-        display: inline-block; } }
+        display: block; } }
+
+.bars-nav {
+  cursor: pointer;
+  height: 20px;
+  width: 30px; }
+  .bars-nav__line {
+    position: absolute;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: #fff;
+    -moz-transition: opacity 0.3s, transform 0.3s, top 0.3s, bottom 0.3s;
+    -o-transition: opacity 0.3s, transform 0.3s, top 0.3s, bottom 0.3s;
+    -webkit-transition: opacity 0.3s, transform 0.3s, top 0.3s, bottom 0.3s;
+    transition: opacity 0.3s, transform 0.3s, top 0.3s, bottom 0.3s; }
+    .bars-nav__line:first-child {
+      top: 0; }
+    .bars-nav__line:nth-child(2) {
+      top: 50%;
+      -moz-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%); }
+    .bars-nav__line:last-child {
+      bottom: 0; }
+    .bars-nav.active .bars-nav__line:first-child {
+      top: 50%;
+      -moz-transform: translateY(-50%) rotate(45deg);
+      -o-transform: translateY(-50%) rotate(45deg);
+      -ms-transform: translateY(-50%) rotate(45deg);
+      -webkit-transform: translateY(-50%) rotate(45deg);
+      transform: translateY(-50%) rotate(45deg); }
+    .bars-nav.active .bars-nav__line:nth-child(2) {
+      opacity: 0; }
+    .bars-nav.active .bars-nav__line:last-child {
+      bottom: 50%;
+      -moz-transform: translateY(50%) rotate(-45deg);
+      -o-transform: translateY(50%) rotate(-45deg);
+      -ms-transform: translateY(50%) rotate(-45deg);
+      -webkit-transform: translateY(50%) rotate(-45deg);
+      transform: translateY(50%) rotate(-45deg); }
 
 .list-nav {
   display: table;
   width: 100%; }
+  @media screen and (max-width: 1024px) {
+    .list-nav {
+      display: none; } }
   .list-nav__item {
     display: table-cell;
     text-align: center; }
+    @media screen and (max-width: 1024px) {
+      .list-nav__item {
+        display: block; } }
   .list-nav__link {
     display: block;
     color: #fff;
@@ -359,9 +404,6 @@ section:not(.slider) {
     .list-nav__item:hover .list-nav__link:before {
       left: 0;
       width: 100%; }
-  @media screen and (max-width: 1024px) {
-    .list-nav {
-      display: none; } }
 
 .slider {
   overflow: hidden; }
