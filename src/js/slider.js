@@ -10,7 +10,7 @@ module.exports = (function() {
       "-moz-transform": `translate3d(-${slidePosition}px, 0px, 0px)`,
       "-ms-transform": `translate3d(-${slidePosition}px, 0px, 0px)`,
       "-o-transform": `translate3d(-${slidePosition}px, 0px, 0px)`,
-      transform: `translate3d(-${slidePosition}px, 0px, 0px)`
+      "transform": `translate3d(-${slidePosition}px, 0px, 0px)`
     });
   };
 
@@ -26,10 +26,10 @@ module.exports = (function() {
   };
 
   const prevSlide = () => {
-    if (slideIndex === 0) {
-      slideIndex = sliderChildrenLength - 1;
+    if (slideIndex !== 0) {
+        slideIndex--;
     } else {
-      slideIndex--;
+        slideIndex = sliderChildrenLength - 1;
     }
     transformSlide(getSlidePosition(sliderChildren[slideIndex]));
   };

@@ -141,10 +141,10 @@ module.exports = function () {
   };
 
   var prevSlide = function prevSlide() {
-    if (slideIndex === 0) {
-      slideIndex = sliderChildrenLength - 1;
-    } else {
+    if (slideIndex !== 0) {
       slideIndex--;
+    } else {
+      slideIndex = sliderChildrenLength - 1;
     }
 
     transformSlide(getSlidePosition(sliderChildren[slideIndex]));
