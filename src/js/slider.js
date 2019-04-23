@@ -1,5 +1,6 @@
 module.exports = (function() {
   let slideIndex = 0;
+  let isTransition = false;
   const sliderContainer = $(".slider__list");
   const sliderChildren = sliderContainer.children();
   const sliderChildrenLength = sliderChildren.length;
@@ -16,21 +17,33 @@ module.exports = (function() {
 
   const getSlidePosition = slide => $(slide).position().left;
 
+  const toggleTransitionFlag = () => {
+    isTransition = false;
+  };
+
   const nextSlide = () => {
+    if (isTransition) {
+        return;
+    }
     if (slideIndex !== sliderChildrenLength - 1) {
       slideIndex++;
     } else {
       slideIndex = 0;
     }
+    isTransition = true;
     transformSlide(getSlidePosition(sliderChildren[slideIndex]));
   };
 
   const prevSlide = () => {
+    if (isTransition) {
+        return;
+    }
     if (slideIndex !== 0) {
         slideIndex--;
     } else {
         slideIndex = sliderChildrenLength - 1;
     }
+    isTransition = true;
     transformSlide(getSlidePosition(sliderChildren[slideIndex]));
   };
 
@@ -49,6 +62,7 @@ module.exports = (function() {
   return {
     nextSlide: nextSlide,
     prevSlide: prevSlide,
-    onResize: onResize
+    onResize: onResize,
+    toggleTransitionFlag: toggleTransitionFlag
   };
 })();
