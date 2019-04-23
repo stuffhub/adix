@@ -10,7 +10,7 @@ module.exports = (function() {
       "-moz-transform": `translate3d(-${slidePosition}px, 0px, 0px)`,
       "-ms-transform": `translate3d(-${slidePosition}px, 0px, 0px)`,
       "-o-transform": `translate3d(-${slidePosition}px, 0px, 0px)`,
-      "transform": `translate3d(-${slidePosition}px, 0px, 0px)`
+      transform: `translate3d(-${slidePosition}px, 0px, 0px)`
     });
   };
 
@@ -36,11 +36,13 @@ module.exports = (function() {
 
   const onResize = () => {
     const viewportWidth = $(window).outerWidth();
-    
+
     sliderChildren.each(function() {
-        $(this).outerWidth(viewportWidth);
+      $(this).outerWidth(viewportWidth);
     });
-    sliderContainer.width(sliderChildrenLength * $(sliderChildren[0]).outerWidth());
+    sliderContainer.width(
+      sliderChildrenLength * $(sliderChildren[0]).outerWidth()
+    );
     transformSlide(getSlidePosition(sliderChildren[slideIndex]));
   };
 
